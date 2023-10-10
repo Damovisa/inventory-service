@@ -1,0 +1,159 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Enable integrations with the inventory service",
+        "version": "1.0.0",
+        "title": "InventoryService",
+        "x-ms-api-annotation": {
+            "status": "Preview"
+        },
+        "contact": {
+            "name": "Microsoft",
+            "email": "ci-3rdpartycontact@microsoft.com",
+            "url": "https://admin.powerplatform.microsoft.com/support"
+        }
+    },
+    "host": "inventoryservice.mycarsite.com",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [],
+    "produces": [],
+    "paths": {
+        "/inventory/all": {
+            "get": {
+                "operationId": "GetAllInventory",
+                "summary": "Get All Inventory Items",
+                "description": "Returns all inventory items including the remaining count",
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "type": "string",
+                        "default": "application/json",
+                        "x-ms-visibility": "internal"
+                    },
+                    {
+                        "name": "Content-type",
+                        "in": "header",
+                        "required": true,
+                        "type": "string",
+                        "default": "application/json",
+                        "x-ms-visibility": "internal"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "default",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "description": "id"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "description": "name"
+                                    },
+                                    "remaining_stock": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "description": "remaining_stock"
+                                    }
+                                    
+                                }
+                            }
+                        },
+                        "headers": {
+                            "Content-Type": {
+                                "description": "Content-Type",
+                                "type": "string"
+                            },
+                            "Accept": {
+                                "description": "Accept",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/inventory/{item-id}": {
+            "get": {
+                "operationId": "GetInventoryItem",
+                "summary": "Gets a single Inventory Item",
+                "description": "Returns a single inventory item including the remaining count",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "item-id",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "type": "string",
+                        "default": "application/json",
+                        "x-ms-visibility": "internal"
+                    },
+                    {
+                        "name": "Content-type",
+                        "in": "header",
+                        "required": true,
+                        "type": "string",
+                        "default": "application/json",
+                        "x-ms-visibility": "internal"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "default",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "id"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "description": "name"
+                                },
+                                "remaining_stock": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "remaining_stock"
+                                }
+                            }
+                        },
+                        "headers": {
+                            "Content-Type": {
+                                "description": "Content-Type",
+                                "type": "string"
+                            },
+                            "Accept": {
+                                "description": "Accept",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {},
+    "parameters": {},
+    "responses": {},
+    "securityDefinitions": {},
+    "security": [],
+    "tags": []
+}
