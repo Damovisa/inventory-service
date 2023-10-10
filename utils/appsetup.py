@@ -13,7 +13,9 @@ def predictdate(ids: list) -> list:
     # return an array of random dates within the next 30 days the same length as the input array
     today = pd.to_datetime('now') # today
     in30days = today + dt.timedelta(days=30) # 30 days from today
-    return np.random.choice(pd.date_range(today, in30days), len(ids))
+    choices = np.random.choice(pd.date_range(today, in30days), len(ids))
+    # return a string date in the format YYYY-MM-DD
+    return [pd.Timestamp(choice) for choice in choices]
 
 # Save the function into a pickle file
 def createfile():
