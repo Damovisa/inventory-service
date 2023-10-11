@@ -38,3 +38,9 @@ id: int
 name: str
 remaining_stock: int
 ```
+
+## Power Platform Connector
+
+The Power Platform connector is a simple wrapper around the API. It is a custom connector that can be imported into Power Apps, Power Automate, Power BI and Logic Apps.
+
+The metadata and OpenAPI (Swagger) API definition can be found in the `powerplatform` directory.
